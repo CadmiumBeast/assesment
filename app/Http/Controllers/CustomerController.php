@@ -54,6 +54,12 @@ class CustomerController extends Controller
         return redirect()->route(auth()->user()->type . '.home');
     }
 
+    public function managerDestroy(Customer $customer)
+    {
+        $customer->delete();
+        return redirect()->route('manager.home');
+    }
+
     public function destroy(Customer $customer)
     {
         $customer->delete();

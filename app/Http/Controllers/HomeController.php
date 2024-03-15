@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Customer;
 use App\Models\Medicine;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,8 @@ class HomeController extends Controller
     }
     public function manager()
     {
-        return view('manager');
+        $customer = Customer::all();
+        return view('manager',['customer' => $customer]);
     }
     public function owner()
     {

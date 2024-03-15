@@ -32,7 +32,8 @@ Route::middleware(['auth', 'user-access:cashier'])->group(function () {
 });
 Route::middleware(['auth', 'user-access:manager'])->group(function () {
     Route::get('/manager', [HomeController::class,'manager'])->name('manager.home');
-    Route::get('manager/customer/{customer}/edit', [MedicineController::class,'edit'])->name('manager.customer.edit');
+    Route::get('manager/customer/{customer}/edit', [CustomerController::class,'edit'])->name('manager.customer.edit');
+    Route::delete('manager/customer/{customer}', [CustomerController::class,'managerDestroy'])->name('manager.customer.destroy');
 });
 Route::middleware(['auth', 'user-access:owner'])->group(function () {
     Route::get('/owner', [HomeController::class,'owner'])->name('owner.home');
